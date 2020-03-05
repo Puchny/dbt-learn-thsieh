@@ -4,4 +4,4 @@ select
     "paymentMethod" as payment_method,
     AMOUNT as order_amount,
     CREATED as creation_date
-from raw.stripe.payment
+from  {{source('stripe', 'payment')}}

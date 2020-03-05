@@ -17,13 +17,13 @@ order_payments as (
 final as (
 
     select
-        dim_orders.order_id,
-        dim_orders.customer_id,
-        dim_orders.order_date,
-        dim_orders.status,
+        orders.order_id,
+        orders.customer_id,
+        orders.order_date,
+        orders.status,
         coalesce(order_payments.amount, 0) as amount
 
-    from dim_orders
+    from orders
     left join order_payments using (order_id)
 )
 
